@@ -1,0 +1,17 @@
+export const trackingScenes = [
+  { id: "blackswan", title: "Black swan" },
+  { id: "horsejump-high", title: "Horse jump (high)" },
+  { id: "car-roundabout", title: "Car roundabout" },
+  { id: "bmx-trees", title: "BMX trees" },
+  { id: "bike-packing", title: "Bike packing" },
+  { id: "dog", title: "Dog" },
+  { id: "kite-surf", title: "Kite surf" },
+  { id: "libby", title: "Libby" },
+  { id: "loading", title: "Loading" },
+  { id: "paragliding-launch", title: "Paragliding launch" },
+  { id: "shooting", title: "Shooting" },
+  { id: "soapbox", title: "Soapbox" },
+  { id: "judo", title: "Judo" },
+  { id: "scooter-black", title: "Scooter black" },
+  { id: "drift-chicane", title: "Drift chicane" },
+];

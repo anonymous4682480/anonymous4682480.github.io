@@ -1,0 +1,496 @@
+{
+  "format": "arrow-web-example/v3",
+  "title": "MegaDepth Brandenburg Gate",
+  "frames": 67,
+  "fps": 12.0,
+  "image": {
+    "path": "rgb.mp4",
+    "width": 504,
+    "height": 378
+  },
+  "geometry": {
+    "positions": {
+      "shape": [
+        131072,
+        1,
+        3
+      ]
+    },
+    "fields": {
+      "positions": {
+        "dtype": "float32",
+        "shape": [
+          131072,
+          1,
+          3
+        ]
+      },
+      "valid": {
+        "dtype": "uint8",
+        "shape": [
+          131072,
+          1
+        ]
+      },
+      "colors": {
+        "dtype": "uint8",
+        "shape": [
+          131072,
+          1,
+          3
+        ]
+      },
+      "confidence": {
+        "dtype": "float32",
+        "shape": [
+          131072,
+          1
+        ]
+      }
+    },
+    "quantization": {
+      "offset": [
+        -21.26036262512207,
+        -2.287381887435913,
+        -3.7856693267822266
+      ],
+      "scale": [
+        0.0008831927566603991,
+        0.00029377103479428596,
+        0.0015234179943151949
+      ],
+      "maxError": [
+        0.00044159637833019957,
+        0.00014688551739714298,
+        0.0007617089971575974
+      ]
+    },
+    "bounds": [
+      [
+        -2.263350009918213,
+        -1.438368797302246,
+        -1.3062312602996826
+      ],
+      [
+        2.541700839996338,
+        1.0357728004455566,
+        5.113102436065674
+      ]
+    ],
+    "chunks": [
+      {
+        "path": "geometry-000.bin.gz",
+        "bytes": 114688,
+        "fields": {
+          "positions": {
+            "offset": 0,
+            "dtype": "uint16",
+            "shape": [
+              8192,
+              1,
+              3
+            ]
+          },
+          "valid": {
+            "offset": 49152,
+            "dtype": "uint8",
+            "shape": [
+              8192,
+              1
+            ]
+          },
+          "colors": {
+            "offset": 57344,
+            "dtype": "uint8",
+            "shape": [
+              8192,
+              1,
+              3
+            ]
+          },
+          "confidence": {
+            "offset": 81920,
+            "dtype": "float32",
+            "shape": [
+              8192,
+              1
+            ]
+          }
+        },
+        "trackStart": 0,
+        "trackCount": 8192,
+        "frameStart": 0,
+        "frameCount": 1
+      },
+      {
+        "path": "geometry-001.bin.gz",
+        "bytes": 458752,
+        "fields": {
+          "positions": {
+            "offset": 0,
+            "dtype": "uint16",
+            "shape": [
+              32768,
+              1,
+              3
+            ]
+          },
+          "valid": {
+            "offset": 196608,
+            "dtype": "uint8",
+            "shape": [
+              32768,
+              1
+            ]
+          },
+          "colors": {
+            "offset": 229376,
+            "dtype": "uint8",
+            "shape": [
+              32768,
+              1,
+              3
+            ]
+          },
+          "confidence": {
+            "offset": 327680,
+            "dtype": "float32",
+            "shape": [
+              32768,
+              1
+            ]
+          }
+        },
+        "trackStart": 8192,
+        "trackCount": 32768,
+        "frameStart": 0,
+        "frameCount": 1
+      },
+      {
+        "path": "geometry-002.bin.gz",
+        "bytes": 458752,
+        "fields": {
+          "positions": {
+            "offset": 0,
+            "dtype": "uint16",
+            "shape": [
+              32768,
+              1,
+              3
+            ]
+          },
+          "valid": {
+            "offset": 196608,
+            "dtype": "uint8",
+            "shape": [
+              32768,
+              1
+            ]
+          },
+          "colors": {
+            "offset": 229376,
+            "dtype": "uint8",
+            "shape": [
+              32768,
+              1,
+              3
+            ]
+          },
+          "confidence": {
+            "offset": 327680,
+            "dtype": "float32",
+            "shape": [
+              32768,
+              1
+            ]
+          }
+        },
+        "trackStart": 40960,
+        "trackCount": 32768,
+        "frameStart": 0,
+        "frameCount": 1
+      },
+      {
+        "path": "geometry-003.bin.gz",
+        "bytes": 458752,
+        "fields": {
+          "positions": {
+            "offset": 0,
+            "dtype": "uint16",
+            "shape": [
+              32768,
+              1,
+              3
+            ]
+          },
+          "valid": {
+            "offset": 196608,
+            "dtype": "uint8",
+            "shape": [
+              32768,
+              1
+            ]
+          },
+          "colors": {
+            "offset": 229376,
+            "dtype": "uint8",
+            "shape": [
+              32768,
+              1,
+              3
+            ]
+          },
+          "confidence": {
+            "offset": 327680,
+            "dtype": "float32",
+            "shape": [
+              32768,
+              1
+            ]
+          }
+        },
+        "trackStart": 73728,
+        "trackCount": 32768,
+        "frameStart": 0,
+        "frameCount": 1
+      },
+      {
+        "path": "geometry-004.bin.gz",
+        "bytes": 344064,
+        "fields": {
+          "positions": {
+            "offset": 0,
+            "dtype": "uint16",
+            "shape": [
+              24576,
+              1,
+              3
+            ]
+          },
+          "valid": {
+            "offset": 147456,
+            "dtype": "uint8",
+            "shape": [
+              24576,
+              1
+            ]
+          },
+          "colors": {
+            "offset": 172032,
+            "dtype": "uint8",
+            "shape": [
+              24576,
+              1,
+              3
+            ]
+          },
+          "confidence": {
+            "offset": 245760,
+            "dtype": "float32",
+            "shape": [
+              24576,
+              1
+            ]
+          }
+        },
+        "trackStart": 106496,
+        "trackCount": 24576,
+        "frameStart": 0,
+        "frameCount": 1
+      }
+    ],
+    "ranks": {
+      "path": "geometry-ranks.f32.gz",
+      "dtype": "float32",
+      "shape": [
+        1,
+        101
+      ],
+      "compression": "gzip"
+    }
+  },
+  "cameras": {
+    "poses": {
+      "path": "camera-poses.bin.gz",
+      "dtype": "float32",
+      "shape": [
+        67,
+        4,
+        4
+      ],
+      "compression": "gzip"
+    },
+    "valid": {
+      "path": "camera-valid.bin.gz",
+      "dtype": "uint8",
+      "shape": [
+        67
+      ],
+      "compression": "gzip"
+    },
+    "intrinsics": {
+      "path": "camera-intrinsics.bin.gz",
+      "dtype": "float32",
+      "shape": [
+        67,
+        4
+      ],
+      "compression": "gzip"
+    }
+  },
+  "input": {
+    "mode": "static_collection",
+    "sourceIndices": [
+      0,
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      9,
+      10,
+      11,
+      14,
+      15,
+      16,
+      20,
+      21,
+      26,
+      28,
+      33,
+      34,
+      35,
+      37,
+      38,
+      40,
+      42,
+      49,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      67,
+      68,
+      69,
+      72,
+      73,
+      74,
+      75,
+      78,
+      79,
+      80,
+      85,
+      89,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      98,
+      100,
+      104,
+      105,
+      116,
+      118,
+      119,
+      124,
+      142,
+      143,
+      144
+    ],
+    "preprocessing": "default_pinhole_warp"
+  },
+  "viewer": {
+    "defaults": {
+      "point_size": 0.05,
+      "confidence_cutoff": 37
+    }
+  },
+  "coordinates": {
+    "frame": "reconstruction frame 0",
+    "convention": "RDF / OpenCV: +x right, +y down, +z forward",
+    "units": "model-relative"
+  },
+  "previews": [
+    [
+      "previews/0/000000.jpg",
+      "previews/0/000001.jpg",
+      "previews/0/000002.jpg",
+      "previews/0/000003.jpg",
+      "previews/0/000004.jpg",
+      "previews/0/000005.jpg",
+      "previews/0/000006.jpg",
+      "previews/0/000007.jpg",
+      "previews/0/000008.jpg",
+      "previews/0/000009.jpg",
+      "previews/0/000010.jpg",
+      "previews/0/000011.jpg",
+      "previews/0/000012.jpg",
+      "previews/0/000013.jpg",
+      "previews/0/000014.jpg",
+      "previews/0/000015.jpg",
+      "previews/0/000016.jpg",
+      "previews/0/000017.jpg",
+      "previews/0/000018.jpg",
+      "previews/0/000019.jpg",
+      "previews/0/000020.jpg",
+      "previews/0/000021.jpg",
+      "previews/0/000022.jpg",
+      "previews/0/000023.jpg",
+      "previews/0/000024.jpg",
+      "previews/0/000025.jpg",
+      "previews/0/000026.jpg",
+      "previews/0/000027.jpg",
+      "previews/0/000028.jpg",
+      "previews/0/000029.jpg",
+      "previews/0/000030.jpg",
+      "previews/0/000031.jpg",
+      "previews/0/000032.jpg",
+      "previews/0/000033.jpg",
+      "previews/0/000034.jpg",
+      "previews/0/000035.jpg",
+      "previews/0/000036.jpg",
+      "previews/0/000037.jpg",
+      "previews/0/000038.jpg",
+      "previews/0/000039.jpg",
+      "previews/0/000040.jpg",
+      "previews/0/000041.jpg",
+      "previews/0/000042.jpg",
+      "previews/0/000043.jpg",
+      "previews/0/000044.jpg",
+      "previews/0/000045.jpg",
+      "previews/0/000046.jpg",
+      "previews/0/000047.jpg",
+      "previews/0/000048.jpg",
+      "previews/0/000049.jpg",
+      "previews/0/000050.jpg",
+      "previews/0/000051.jpg",
+      "previews/0/000052.jpg",
+      "previews/0/000053.jpg",
+      "previews/0/000054.jpg",
+      "previews/0/000055.jpg",
+      "previews/0/000056.jpg",
+      "previews/0/000057.jpg",
+      "previews/0/000058.jpg",
+      "previews/0/000059.jpg",
+      "previews/0/000060.jpg",
+      "previews/0/000061.jpg",
+      "previews/0/000062.jpg",
+      "previews/0/000063.jpg",
+      "previews/0/000064.jpg",
+      "previews/0/000065.jpg",
+      "previews/0/000066.jpg"
+    ]
+  ]
+}

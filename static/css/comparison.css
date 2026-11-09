@@ -1,0 +1,137 @@
+/* Qualitative examples share the project's viewer controls and theme. */
+[data-comparison-section] {
+  container-type: inline-size;
+}
+
+[data-comparison-section] [hidden] {
+  display: none !important;
+}
+.control-row-primary {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+.control-row-primary .example-picker {
+  margin: 0;
+}
+[data-comparison-section] .example-chip {
+  transition: background-color 160ms ease;
+}
+[data-comparison-section] .example-chip.is-active {
+  transition: none;
+}
+.scene-strip {
+  --scene-preview-height: clamp(3.5rem, 7vw, 5rem);
+  min-height: calc(var(--scene-preview-height) + 4px + 0.7rem);
+  display: flex;
+  justify-content: safe center;
+  gap: 0.65rem;
+  overflow-x: auto;
+  padding: 0.35rem;
+  margin-bottom: 1.25rem;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+}
+[data-comparison-task="tracking"] [data-scene-task="reconstruction"],
+[data-comparison-task="reconstruction"] [data-scene-task="tracking"] {
+  display: none;
+}
+.scene-card {
+  --shimmer-base: light-dark(#ececec, #202020);
+  --shimmer-highlight: light-dark(#f8f8f8, #303030);
+  position: relative;
+  flex: 0 0 auto;
+  padding: 0;
+  border: 2px solid var(--line);
+  border-radius: 0.65rem;
+  box-shadow: 0 0.15rem 0.4rem rgb(0 0 0 / 10%);
+  overflow: hidden;
+  scroll-snap-align: center;
+  opacity: 0.5;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    opacity 180ms ease;
+  background: var(--shimmer-base);
+  background-clip: padding-box;
+}
+.scene-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 -35%;
+  pointer-events: none;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    color-mix(in srgb, var(--shimmer-highlight) 15%, transparent) 15%,
+    color-mix(in srgb, var(--shimmer-highlight) 40%, transparent) 30%,
+    color-mix(in srgb, var(--shimmer-highlight) 65%, transparent) 50%,
+    color-mix(in srgb, var(--shimmer-highlight) 40%, transparent) 70%,
+    color-mix(in srgb, var(--shimmer-highlight) 15%, transparent) 85%,
+    transparent 100%
+  );
+  transform: translateX(-110%);
+  animation: scene-preview-shimmer 1.8s ease-in-out infinite;
+}
+.scene-card img {
+  position: relative;
+  display: block;
+  width: auto;
+  height: var(--scene-preview-height);
+}
+.has-js .scene-card img:not([data-preview-state="ready"]) {
+  opacity: 0;
+}
+.scene-card:has(img[data-preview-state="ready"]),
+.scene-card:has(img[data-preview-state="error"]) {
+  background: var(--tint);
+}
+.scene-card:has(img[data-preview-state="ready"])::before,
+.scene-card:has(img[data-preview-state="error"])::before {
+  display: none;
+  animation: none;
+}
+@keyframes scene-preview-shimmer {
+  from {
+    transform: translateX(-110%);
+  }
+  to {
+    transform: translateX(110%);
+  }
+}
+.scene-card[aria-pressed="true"] {
+  opacity: 1;
+  border-color: var(--blue);
+  box-shadow:
+    0 0.15rem 0.4rem rgb(0 0 0 / 10%),
+    0 0 0 0.15rem color-mix(in srgb, var(--blue) 12%, transparent);
+}
+.scene-card:focus-visible {
+  opacity: 1;
+}
+@media (hover: hover) and (pointer: fine) {
+  .scene-card:hover {
+    opacity: 1;
+  }
+  .scene-card:hover:not([aria-pressed="true"]) {
+    border-color: color-mix(in srgb, var(--blue) 45%, transparent);
+  }
+}
+@media (max-width: 720px) {
+  .scene-strip {
+    margin-inline: calc((100% - 100cqw) / 2);
+    padding-inline: calc((100cqw - 100%) / 2 + 0.35rem);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-comparison-section] .example-chip {
+    transition: none;
+  }
+  .scene-card::before {
+    animation: none;
+    display: none;
+  }
+  .scene-card {
+    transition: none;
+  }
+}

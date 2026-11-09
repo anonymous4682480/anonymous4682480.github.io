@@ -1,0 +1,40 @@
+#tracking2d {
+  min-height: calc(100svh - var(--bar-height));
+}
+
+.tracking2d-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+.tracking2d-card {
+  min-width: 0;
+  margin: 0;
+  scroll-margin-top: 6rem;
+}
+.tracking2d-card video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: #18181b;
+  border: 1px solid var(--line);
+  border-radius: 0.65rem;
+}
+.tracking2d-card figcaption {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-top: 0.5rem;
+  font-size: 0.875rem;
+}
+@media (max-width: 960px) {
+  .tracking2d-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .tracking2d-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

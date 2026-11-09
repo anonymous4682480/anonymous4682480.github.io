@@ -1,0 +1,258 @@
+{
+  "format": "tracking2d",
+  "version": 1,
+  "width": 504,
+  "height": 280,
+  "num_frames": 48,
+  "num_tracks": 576,
+  "grid_hw": [
+    24,
+    24
+  ],
+  "query_frame": 0,
+  "coordinates": "edge-normalized UV: pixel center (x,y) = (u*width-0.5,v*height-0.5); values outside [0,1] are retained; non-finite positions are invalid",
+  "track_order": "row-major query grid; track ID is the array row index",
+  "visibility_kind": "sigmoid_visibility_logit",
+  "visibility_default_threshold": 0.5,
+  "settings": {
+    "step": 1,
+    "trail": 12,
+    "radius": 1.5,
+    "fps": 15,
+    "occluded": false,
+    "overlay": true,
+    "hollow": true,
+    "threshold": 0.5,
+    "outside": false,
+    "margin": 0.25
+  },
+  "queries": "queries.d4rb.gz",
+  "chunks": [
+    {
+      "file": "tracks-00000.d4rb.gz",
+      "start": 0,
+      "frames": 8
+    },
+    {
+      "file": "tracks-00008.d4rb.gz",
+      "start": 8,
+      "frames": 8
+    },
+    {
+      "file": "tracks-00016.d4rb.gz",
+      "start": 16,
+      "frames": 8
+    },
+    {
+      "file": "tracks-00024.d4rb.gz",
+      "start": 24,
+      "frames": 8
+    },
+    {
+      "file": "tracks-00032.d4rb.gz",
+      "start": 32,
+      "frames": 8
+    },
+    {
+      "file": "tracks-00040.d4rb.gz",
+      "start": 40,
+      "frames": 8
+    }
+  ],
+  "frames": [
+    {
+      "file": "frames/00000.png",
+      "time": 0
+    },
+    {
+      "file": "frames/00001.png",
+      "time": 0.06666666666666667
+    },
+    {
+      "file": "frames/00002.png",
+      "time": 0.13333333333333333
+    },
+    {
+      "file": "frames/00003.png",
+      "time": 0.2
+    },
+    {
+      "file": "frames/00004.png",
+      "time": 0.26666666666666666
+    },
+    {
+      "file": "frames/00005.png",
+      "time": 0.3333333333333333
+    },
+    {
+      "file": "frames/00006.png",
+      "time": 0.4
+    },
+    {
+      "file": "frames/00007.png",
+      "time": 0.4666666666666667
+    },
+    {
+      "file": "frames/00008.png",
+      "time": 0.5333333333333333
+    },
+    {
+      "file": "frames/00009.png",
+      "time": 0.6
+    },
+    {
+      "file": "frames/00010.png",
+      "time": 0.6666666666666666
+    },
+    {
+      "file": "frames/00011.png",
+      "time": 0.7333333333333333
+    },
+    {
+      "file": "frames/00012.png",
+      "time": 0.8
+    },
+    {
+      "file": "frames/00013.png",
+      "time": 0.8666666666666667
+    },
+    {
+      "file": "frames/00014.png",
+      "time": 0.9333333333333333
+    },
+    {
+      "file": "frames/00015.png",
+      "time": 1
+    },
+    {
+      "file": "frames/00016.png",
+      "time": 1.0666666666666667
+    },
+    {
+      "file": "frames/00017.png",
+      "time": 1.1333333333333333
+    },
+    {
+      "file": "frames/00018.png",
+      "time": 1.2
+    },
+    {
+      "file": "frames/00019.png",
+      "time": 1.2666666666666666
+    },
+    {
+      "file": "frames/00020.png",
+      "time": 1.3333333333333333
+    },
+    {
+      "file": "frames/00021.png",
+      "time": 1.4
+    },
+    {
+      "file": "frames/00022.png",
+      "time": 1.4666666666666666
+    },
+    {
+      "file": "frames/00023.png",
+      "time": 1.5333333333333334
+    },
+    {
+      "file": "frames/00024.png",
+      "time": 1.6
+    },
+    {
+      "file": "frames/00025.png",
+      "time": 1.6666666666666667
+    },
+    {
+      "file": "frames/00026.png",
+      "time": 1.7333333333333334
+    },
+    {
+      "file": "frames/00027.png",
+      "time": 1.8
+    },
+    {
+      "file": "frames/00028.png",
+      "time": 1.8666666666666667
+    },
+    {
+      "file": "frames/00029.png",
+      "time": 1.9333333333333333
+    },
+    {
+      "file": "frames/00030.png",
+      "time": 2
+    },
+    {
+      "file": "frames/00031.png",
+      "time": 2.066666666666667
+    },
+    {
+      "file": "frames/00032.png",
+      "time": 2.1333333333333333
+    },
+    {
+      "file": "frames/00033.png",
+      "time": 2.2
+    },
+    {
+      "file": "frames/00034.png",
+      "time": 2.2666666666666666
+    },
+    {
+      "file": "frames/00035.png",
+      "time": 2.3333333333333335
+    },
+    {
+      "file": "frames/00036.png",
+      "time": 2.4
+    },
+    {
+      "file": "frames/00037.png",
+      "time": 2.466666666666667
+    },
+    {
+      "file": "frames/00038.png",
+      "time": 2.533333333333333
+    },
+    {
+      "file": "frames/00039.png",
+      "time": 2.6
+    },
+    {
+      "file": "frames/00040.png",
+      "time": 2.6666666666666665
+    },
+    {
+      "file": "frames/00041.png",
+      "time": 2.7333333333333334
+    },
+    {
+      "file": "frames/00042.png",
+      "time": 2.8
+    },
+    {
+      "file": "frames/00043.png",
+      "time": 2.8666666666666667
+    },
+    {
+      "file": "frames/00044.png",
+      "time": 2.933333333333333
+    },
+    {
+      "file": "frames/00045.png",
+      "time": 3
+    },
+    {
+      "file": "frames/00046.png",
+      "time": 3.066666666666667
+    },
+    {
+      "file": "frames/00047.png",
+      "time": 3.1333333333333333
+    }
+  ],
+  "timing": "presentation seconds, using exported FPS; selected frames are played uniformly",
+  "video": "preview.mp4"
+}

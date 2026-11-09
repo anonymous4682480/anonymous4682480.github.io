@@ -1,0 +1,724 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./node_modules/three/build/three.module.js",
+          "three/addons/": "./node_modules/three/examples/jsm/"
+        }
+      }
+    </script>
+    <script>
+      (() => {
+        let theme;
+        try {
+          theme = localStorage.getItem("arrow-theme");
+        } catch {}
+        if (theme !== "light" && theme !== "dark") {
+          theme = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+      })();
+    </script>
+    <script type="module" src="./static/js/tab-bars.js" fetchpriority="high"></script>
+    <script>
+      document.documentElement.classList.add("has-js");
+      (() => {
+        const root = document.documentElement;
+        const update = () => {
+          if (!root.classList.contains("viewer-scroll-locked")) {
+            root.classList.toggle("menu-scrolled", window.scrollY > 24);
+          }
+        };
+        const restore = () => {
+          root.classList.remove("menu-ready");
+          update();
+          requestAnimationFrame(() => {
+            update();
+            requestAnimationFrame(() => root.classList.add("menu-ready"));
+          });
+        };
+        window.addEventListener("scroll", update, { passive: true });
+        window.addEventListener("pageshow", restore);
+        window.addEventListener("viewerscrollrestore", restore);
+        window.addEventListener("pagehide", () => root.classList.remove("menu-ready"));
+        update();
+      })();
+    </script>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="ARROW for 4D reconstruction and 3D point tracking from arbitrary RGB images and videos. Anonymous supplementary videos and interactive examples."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://anonymous4682480.github.io/" />
+    <meta property="og:title" content="ARROW: Arbitrary Reconstruction and Tracking of 4D Observations in the Wild" />
+    <meta
+      property="og:description"
+      content="ARROW for 4D reconstruction and 3D point tracking from arbitrary RGB images and videos. Anonymous supplementary videos and interactive examples."
+    />
+    <meta
+      property="og:image"
+      content="https://anonymous4682480.github.io/assets/videos/overview-poster.jpg"
+    />
+    <meta property="og:image:alt" content="ARROW interactive video overview" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0e" />
+    <title>ARROW: Arbitrary Reconstruction and Tracking of 4D Observations in the Wild</title>
+    <link rel="icon" type="image/svg+xml" href="./assets/images/icon.svg" />
+    <style>
+      html {
+        color-scheme: light dark;
+      }
+
+      html,
+      body {
+        background: #fff;
+      }
+
+      html[data-theme="dark"] {
+        background: #0a0a0e;
+      }
+
+      html[data-theme="dark"] body {
+        background: #0a0a0e;
+      }
+    </style>
+
+    <link rel="stylesheet" href="./static/css/fonts.css" />
+    <link rel="stylesheet" href="./static/css/icons.css" />
+    <link rel="stylesheet" href="./static/css/site.css" />
+    <link rel="stylesheet" href="./static/css/comparison.css" />
+    <link rel="stylesheet" href="./static/css/tracking2d.css" />
+    <script type="module" src="./static/js/site.js"></script>
+    <script type="module" src="./static/js/scene-previews.js"></script>
+    <script type="module" src="./static/js/comparison.js"></script>
+    <script type="module" src="./static/js/tracking2d.js"></script>
+  </head>
+
+  <body id="top">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-header" id="site-header">
+      <div class="page-shell header-inner">
+        <a class="wordmark" href="#top" aria-label="Arrow home"
+          ><img src="./assets/images/icon-header.webp" width="96" height="69" alt="" />ARROW</a
+        >
+        <div class="header-actions">
+          <nav class="site-nav" aria-label="Primary navigation">
+            <a href="/video-overview">Video</a>
+            <a href="/interactive-teaser">Interactive teaser</a>
+            <a href="/qualitative-examples">Interactive qualitative examples</a>
+            <a href="/2d-predictions">2D predictions</a>
+          </nav>
+          <div class="header-controls">
+            <button
+              class="theme-toggle viewer-settings-button"
+              type="button"
+              data-theme-toggle
+              aria-label="Switch theme"
+              aria-pressed="false"
+            >
+              <svg class="theme-moon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+              </svg>
+              <svg class="theme-sun" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="4" />
+                <path
+                  d="M12 2v2m0 16v2M2 12h2m16 0h2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero section-space">
+        <div class="page-shell hero-content">
+          <h1>ARROW: Arbitrary Reconstruction and Tracking of 4D Observations in the Wild</h1>
+
+          <p class="affiliations">Supplementary material for double-blind review</p>
+
+        </div>
+      </section>
+
+      <section class="section-space" id="video" data-section-path="video-overview">
+        <div class="page-shell">
+          <div class="section-heading section-heading-centered">
+            <h2>Video overview
+              <button class="section-link" type="button" data-copy-section aria-label="Copy link to Video overview" title="Copy link to Video overview"><i class="fa-solid fa-link" aria-hidden="true"></i></button>
+            </h2>
+          </div>
+          <figure class="overview-video">
+            <video controls controlslist="nodownload" playsinline preload="none" poster="./assets/videos/overview-poster.jpg" aria-label="ARROW reconstruction and tracking video overview">
+              <source src="./assets/videos/overview.mp4" type="video/mp4" />
+              Your browser does not support HTML video.
+            </video>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section-space" id="overview" data-section-path="interactive-teaser" data-default-example="allpix">
+        <div class="page-shell">
+          <div class="section-heading section-heading-centered">
+            <h2>Interactive teaser
+              <button class="section-link" type="button" data-copy-section aria-label="Copy link to Interactive teaser" title="Copy link to Interactive teaser"><i class="fa-solid fa-link" aria-hidden="true"></i></button>
+            </h2>
+            <p>
+              Photo collections, moving-camera videos, and synchronized camera streams provide complementary evidence of
+              geometry and motion. ARROW reconstructs and tracks points across these inputs without requiring a temporal
+              ordering of the observations.
+            </p>
+          </div>
+          <div data-capabilities-viewer>
+            <nav class="example-picker" aria-label="Capabilities">
+              <span class="example-picker-indicator" aria-hidden="true"></span>
+              <a
+                class="example-chip"
+                data-example="allpix"
+                data-manifest="./assets/exports/progressive/judo/arrow/manifest.json"
+                href="?capability=allpix#overview"
+                >All-pixel tracking</a
+              >
+              <a
+                class="example-chip"
+                data-example="mv-allpix"
+                data-manifest="./assets/exports/progressive/pstudio-basketball/arrow/manifest.json"
+                href="?capability=mv-allpix#overview"
+                >Multiview tracking</a
+              >
+              <a
+                class="example-chip"
+                data-example="brandenburg"
+                data-manifest="./assets/exports/progressive/brandenburger-tor/arrow/manifest.json"
+                href="?capability=brandenburg#overview"
+                >Static image collection</a
+              >
+            </nav>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-space" id="examples" data-section-path="qualitative-examples" data-comparison-section aria-label="Interactive qualitative examples">
+        <div class="page-shell">
+          <div class="section-heading section-heading-centered">
+            <h2>Interactive qualitative examples
+              <button class="section-link" type="button" data-copy-section aria-label="Copy link to Interactive qualitative examples" title="Copy link to Interactive qualitative examples"><i class="fa-solid fa-link" aria-hidden="true"></i></button>
+            </h2>
+            <p>Example outputs from ARROW for different tasks.</p>
+          </div>
+          <div class="control-row-primary">
+            <div class="example-picker" role="group" aria-label="Example task">
+              <button class="example-chip is-active" type="button" aria-pressed="true" data-task="tracking">
+                Tracking
+              </button>
+              <button class="example-chip" type="button" aria-pressed="false" data-task="reconstruction">
+                Reconstruction
+              </button>
+            </div>
+          </div>
+          <script>
+            (() => {
+              const section = document.querySelector("[data-comparison-section]");
+              const requested =
+                new URLSearchParams(location.search).get("task") ??
+                new URLSearchParams(location.search).get("comparison");
+              const task = requested === "recon" || requested === "reconstruction" ? "reconstruction" : "tracking";
+              section.dataset.comparisonTask = task;
+              section.querySelectorAll("[data-task]").forEach((button) => {
+                const active = button.dataset.task === task;
+                button.classList.toggle("is-active", active);
+                button.setAttribute("aria-pressed", String(active));
+              });
+            })();
+          </script>
+          <nav class="scene-strip" data-scenes aria-label="Scenes">
+            <button
+              class="scene-card"
+              type="button"
+              data-scene="davis"
+              data-scene-task="tracking"
+              aria-label="DAVIS Train"
+              title="DAVIS Train"
+              aria-pressed="true"
+            >
+              <img
+                src="./assets/exports/progressive/davis-train/arrow/previews/0/000000.jpg"
+                width="504"
+                height="280"
+                alt=""
+                draggable="false"
+              />
+            </button>
+            <button
+              class="scene-card"
+              type="button"
+              data-scene="kubric-20"
+              data-scene-task="tracking"
+              aria-label="Kubric"
+              title="Kubric"
+              aria-pressed="false"
+            >
+              <img
+                src="./assets/exports/progressive/kubric-20/arrow/previews/0/000000.jpg"
+                width="504"
+                height="504"
+                alt=""
+                draggable="false"
+              />
+            </button>
+            <button
+              class="scene-card"
+              type="button"
+              data-scene="horse"
+              data-scene-task="tracking"
+              aria-label="Horse jump"
+              title="Horse jump"
+              aria-pressed="false"
+            >
+              <img
+                src="./assets/exports/progressive/horse-jump/arrow/previews/0/000000.jpg"
+                width="504"
+                height="280"
+                alt=""
+                draggable="false"
+              />
+            </button>
+            <button
+              class="scene-card"
+              type="button"
+              data-scene="bus"
+              data-scene-task="tracking"
+              aria-label="DAVIS Bus"
+              title="DAVIS Bus"
+              aria-pressed="false"
+            >
+              <img
+                src="./assets/exports/progressive/bus/arrow/previews/0/000000.jpg"
+                width="504"
+                height="280"
+                alt=""
+                draggable="false"
+              />
+            </button>
+            <button
+              class="scene-card"
+              type="button"
+              data-scene="swan"
+              data-scene-task="tracking"
+              aria-label="Swan"
+              title="Swan"
+              aria-pressed="false"
+            >
+              <img
+                src="./assets/exports/progressive/swan/arrow/previews/0/000000.jpg"
+                width="504"
+                height="280"
+                alt=""
+                draggable="false"
+              />
+            </button>
+            <button
+              class="scene-card"
+              type="button"
+              data-scene="dance"
+              data-scene-task="tracking"
+              aria-label="Dance"
+              title="Dance"
+              aria-pressed="false"
+            >
+              <img
+                src="./assets/exports/progressive/dance-twirl/arrow/previews/0/000000.jpg"
+                width="504"
+                height="280"
+                alt=""
+                draggable="false"
+              />
+            </button>
+            <button
+              class="scene-card"
+              type="button"
+              data-scene="umic"
+              data-scene-task="reconstruction"
+              aria-label="UMIC"
+              title="UMIC"
+              aria-pressed="true"
+            >
+              <img
+                src="./assets/exports/progressive/umic/arrow/previews/0/000000.jpg"
+                width="378"
+                height="504"
+                alt=""
+                draggable="false"
+              />
+            </button>
+            <button
+              class="scene-card"
+              type="button"
+              data-scene="mono-chair"
+              data-scene-task="reconstruction"
+              aria-label="Chair"
+              title="Chair"
+              aria-pressed="false"
+            >
+              <img
+                src="./assets/exports/progressive/mono-chair/arrow/previews/0/000000.jpg"
+                width="504"
+                height="280"
+                alt=""
+                draggable="false"
+              />
+            </button>
+            <button
+              class="scene-card"
+              type="button"
+              data-scene="drone"
+              data-scene-task="reconstruction"
+              aria-label="Drone"
+              title="Drone"
+              aria-pressed="false"
+            >
+              <img
+                src="./assets/exports/progressive/drone/arrow/previews/0/000000.jpg"
+                width="504"
+                height="378"
+                alt=""
+                draggable="false"
+              />
+            </button>
+            <button
+              class="scene-card"
+              type="button"
+              data-scene="chess"
+              data-scene-task="reconstruction"
+              aria-label="Chess"
+              title="Chess"
+              aria-pressed="false"
+            >
+              <img
+                src="./assets/exports/progressive/chess/arrow/previews/0/000000.jpg"
+                width="504"
+                height="378"
+                alt=""
+                draggable="false"
+              />
+            </button>
+          </nav>
+          <script>
+            (() => {
+              const section = document.querySelector("[data-comparison-section]");
+              const requestedScene =
+                new URLSearchParams(location.search).get("scene") ??
+                new URLSearchParams(location.search).get("example");
+              const cards = [...section.querySelectorAll("[data-scene]")];
+              const available = cards.filter((card) => card.dataset.sceneTask === section.dataset.comparisonTask);
+              const selected =
+                available.find((card) => card.dataset.scene === requestedScene) ||
+                available.find((card) => card.getAttribute("aria-pressed") === "true") ||
+                available[0];
+              cards.forEach((card) => card.setAttribute("aria-pressed", String(card === selected)));
+              if (!selected) return;
+              const strip = section.querySelector("[data-scenes]");
+              let interacted = false;
+              strip.addEventListener(
+                "pointerdown",
+                () => {
+                  interacted = true;
+                },
+                { once: true },
+              );
+              requestAnimationFrame(() => {
+                if (interacted) return;
+                const edge = selected.offsetLeft + selected.offsetWidth;
+                if (edge > strip.clientWidth) strip.scrollLeft = edge - strip.clientWidth + 6;
+              });
+            })();
+          </script>
+          <div data-viewer-host="arrow"></div>
+        </div>
+        <template id="comparison-viewer-template" data-comparison-template>
+          <div
+            class="viewer-shell"
+            data-arrow-viewer
+            data-viewer-manual
+            data-progressive-root="./assets/exports/progressive"
+          >
+            <div class="viewer-toolbar">
+              <div class="viewer-title"><strong data-viewer-title></strong><span data-viewer-meta></span></div>
+              <button
+                class="viewer-settings-button"
+                type="button"
+                data-reset-view
+                aria-label="Reset view"
+                title="Reset view"
+              >
+                <i class="fa-solid fa-rotate-left" aria-hidden="true"></i>
+              </button>
+              <button
+                class="viewer-settings-button"
+                type="button"
+                data-input-camera
+                aria-label="View from input camera"
+                title="View from input camera"
+                disabled
+              >
+                <i class="fa-solid fa-image" aria-hidden="true"></i>
+              </button>
+              <button
+                class="viewer-settings-button"
+                type="button"
+                data-frustums-toggle
+                aria-pressed="true"
+                aria-label="Show camera frustums and image planes"
+                title="Hide camera frustums and image planes"
+                disabled
+              >
+                <i class="fa-solid fa-eye" aria-hidden="true"></i>
+              </button>
+              <button
+                class="viewer-settings-button"
+                type="button"
+                data-viewer-expand
+                aria-pressed="false"
+                aria-label="Expand viewer"
+                title="Expand viewer"
+              >
+                <i class="fa-solid fa-expand" aria-hidden="true"></i>
+              </button>
+              <button
+                class="viewer-settings-button"
+                type="button"
+                data-settings-toggle
+                aria-expanded="false"
+                aria-controls="viewer-settings"
+                aria-label="Open viewer settings"
+              >
+                <i class="fa-solid fa-sliders" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="viewer-settings" id="viewer-settings" data-settings-menu hidden>
+              <p>Settings</p>
+              <label class="viewer-setting viewer-setting-range"
+                ><span>Confidence cutoff <small data-confidence-value>0%</small></span
+                ><input type="range" autocomplete="off" min="0" max="100" step="1" value="0" data-confidence-cutoff
+              /></label>
+              <label class="viewer-setting viewer-setting-range"
+                ><span>Point size <small data-point-size-value>0.050</small></span
+                ><input
+                  type="range"
+                  autocomplete="off"
+                  min="0.005"
+                  max="0.15"
+                  step="0.001"
+                  value="0.05"
+                  data-point-size
+              /></label>
+              <label class="viewer-setting" data-static-only
+                ><span>Show all cameras</span><input type="checkbox" autocomplete="off" data-static-all-cameras
+              /></label>
+              <label class="viewer-setting viewer-setting-range" data-static-hidden data-trajectory-only
+                ><span>Sampled trajectories <small data-trajectory-sample-value>2,048</small></span
+                ><input
+                  type="range"
+                  autocomplete="off"
+                  min="0"
+                  max="16384"
+                  step="1"
+                  value="2048"
+                  data-trajectory-sample
+              /></label>
+              <label class="viewer-setting viewer-setting-range" data-static-hidden data-trajectory-only
+                ><span>Trajectory history <small data-trajectory-history-value>20 frames</small></span
+                ><input type="range" autocomplete="off" min="2" max="48" step="1" value="20" data-trajectory-history
+              /></label>
+              <label class="viewer-setting" data-multiview-only
+                ><span>Show all context cameras</span><input type="checkbox" autocomplete="off" data-keep-cameras
+              /></label>
+            </div>
+            <div class="viewer-stage" data-viewer-stage role="region" tabindex="0" aria-label="Interactive 4D scene">
+              <div class="viewer-scroll-gutter viewer-scroll-gutter-left" aria-hidden="true"></div>
+              <div class="viewer-scroll-gutter viewer-scroll-gutter-right" aria-hidden="true"></div>
+              <button class="viewer-touch-lock" type="button" data-touch-lock hidden>
+                <i class="fa-solid fa-lock" aria-hidden="true"></i><span>Double-tap to explore</span>
+              </button>
+              <video
+                class="viewer-video-fallback"
+                data-viewer-video
+                muted
+                loop
+                playsinline
+                preload="none"
+                aria-hidden="true"
+              ></video>
+              <div class="viewer-loading" data-viewer-loading role="status" aria-live="polite">
+                <svg
+                  class="viewer-loader-cube"
+                  viewBox="0 0 40 40"
+                  shape-rendering="geometricPrecision"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path data-loader-face fill="var(--loader-cube-face-0)" d="M20 5 34 12 20 20 6 12Z" />
+                  <path data-loader-face fill="var(--loader-cube-face-1)" d="M6 12 20 20 20 35 6 27Z" />
+                  <path data-loader-face fill="var(--loader-cube-face-2)" d="M20 20 34 12 34 27 20 35Z" />
+                  <path data-loader-face />
+                  <path data-loader-face />
+                  <path data-loader-face />
+                  <path
+                    data-loader-edges
+                    d="M20 5 34 12 34 27 20 35 6 27 6 12Z M6 12 20 20 34 12 M20 20 20 35"
+                    fill="none"
+                    stroke="var(--loader-cube-edge)"
+                    stroke-width="2.4"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <svg
+                  class="viewer-loader-error"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  focusable="false"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                >
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M12 7v6m0 4h0" stroke-width="2.4" />
+                </svg>
+                <div data-viewer-loading-text>Loading interactive scene…</div>
+              </div>
+              <div
+                class="rgb-inset"
+                data-rgb-inset
+                role="button"
+                tabindex="0"
+                aria-label="Follow the input camera"
+                title="Click to follow the input camera"
+              >
+                <video data-viewer-inset muted playsinline preload="none"></video>
+                <img data-viewer-preview hidden alt="Input frame" />
+              </div>
+              <div
+                class="static-observations"
+                data-static-observations
+                hidden
+                aria-label="Selected input observations"
+              ></div>
+            </div>
+            <div class="viewer-controls">
+              <button
+                class="play-button"
+                type="button"
+                data-play-toggle
+                aria-label="Pause Judo example"
+                aria-pressed="true"
+              >
+                <span class="play-icon" aria-hidden="true"><span></span><span></span></span>
+              </button>
+              <div class="viewer-scrubber" data-viewer-scrubber>
+                <input
+                  aria-label="Judo example frame"
+                  type="range"
+                  autocomplete="off"
+                  min="0"
+                  max="1"
+                  step="any"
+                  value="0"
+                  data-frame-slider
+                />
+                <div class="viewer-scrubber-visual" aria-hidden="true">
+                  <div class="viewer-buffered-ranges" data-buffered-ranges>
+                    <div class="viewer-scrubber-fill"></div>
+                  </div>
+                  <div class="viewer-scrubber-thumb" data-scrubber-thumb></div>
+                </div>
+              </div>
+              <output data-frame-output
+                ><span>Frame</span> <span data-frame-current>-</span> <span>/</span>
+                <span data-frame-total>-</span></output
+              >
+            </div>
+          </div>
+        </template>
+        <script>
+          (() => {
+            const section = document.querySelector("[data-comparison-section]");
+            const template = section.querySelector("[data-comparison-template]");
+            const shell = template.content.querySelector("[data-arrow-viewer]").cloneNode(true);
+            const tracking = section.dataset.comparisonTask === "tracking";
+            shell.dataset.mode = shell.dataset.inputMode = tracking ? "monocular_video" : "static_collection";
+            shell.querySelector("[data-viewer-title]").textContent = tracking ? "DAVIS Train" : "UMIC";
+            shell.querySelector("[data-settings-menu]").id = "comparison-settings-arrow";
+            shell.querySelector("[data-settings-toggle]").setAttribute("aria-controls", "comparison-settings-arrow");
+            section.querySelector('[data-viewer-host="arrow"]').append(shell);
+          })();
+        </script>
+      </section>
+
+      <section class="section-space" id="tracking2d" data-section-path="2d-predictions" aria-labelledby="tracking2d-heading">
+        <div class="page-shell">
+          <div class="section-heading section-heading-centered">
+            <h2 id="tracking2d-heading">2D predictions
+              <button class="section-link" type="button" data-copy-section aria-label="Copy link to 2D predictions" title="Copy link to 2D predictions"><i class="fa-solid fa-link" aria-hidden="true"></i></button>
+            </h2>
+            <p>Point tracks on the TAP-Vid-DAVIS videos. Queries start on the first frame of each clip; predicted occluded points are hidden.</p>
+          </div>
+          <div class="tracking2d-grid" data-tracking2d-gallery></div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <div class="page-shell footer-inner">
+        <p>ARROW</p>
+        <p>Anonymous supplementary material</p>
+      </div>
+    </footer>
+    <script>
+      (() => {
+        const section = document.querySelector("#overview");
+        const destination = section.querySelector("[data-capabilities-viewer]");
+        const template = document.querySelector("[data-comparison-template]");
+        const copy = template.content.querySelector("[data-arrow-viewer]").cloneNode(true);
+        copy.removeAttribute("data-viewer-manual");
+        copy.querySelector("[data-settings-menu]").id = "capabilities-settings";
+        copy.querySelector("[data-settings-toggle]").setAttribute("aria-controls", "capabilities-settings");
+        destination.append(copy);
+        const scenes = {
+          allpix: ["Judo", "monocular_video"],
+          brandenburg: ["Brandenburg Gate", "static_collection"],
+          "mv-allpix": ["Basketball", "multi_view_video"],
+        };
+        const buttons = [...section.querySelectorAll(".example-chip[data-example]")];
+        const query = new URLSearchParams(location.search);
+        const value = query.get("cap") ?? query.get("capability");
+        const requested = { "pix-track": "allpix", "mv-track": "mv-allpix", static: "brandenburg" }[value] || value;
+        const key = buttons.some((button) => button.dataset.example === requested)
+          ? requested
+          : section.dataset.defaultExample;
+        copy.dataset.example = key;
+        copy.dataset.mode = copy.dataset.inputMode = scenes[key][1];
+        copy.querySelector("[data-viewer-title]").textContent = scenes[key][0];
+        buttons.forEach((button) => {
+          [button.dataset.sceneTitle, button.dataset.sceneMode] = scenes[button.dataset.example];
+          const active = button.dataset.example === key;
+          button.classList.toggle("is-active", active);
+          button.toggleAttribute("aria-current", active);
+        });
+      })();
+    </script>
+    <span class="copy-status" role="status" data-copy-status></span>
+    <script src="./static/js/navigation.js"></script>
+  </body>
+</html>

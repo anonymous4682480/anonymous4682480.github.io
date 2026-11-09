@@ -1,0 +1,322 @@
+{
+  "format": "arrow-web-example/v3",
+  "title": "arrow-arrow-teaser-final-p1-w24o4-recon__c4656413",
+  "tasks": [
+    "reconstruction"
+  ],
+  "tracking": null,
+  "frames": 1,
+  "fps": 12.0,
+  "image": {
+    "path": "rgb.mp4",
+    "width": 378,
+    "height": 504
+  },
+  "cameras": {
+    "poses": {
+      "path": "camera-poses.bin.gz",
+      "dtype": "float32",
+      "shape": [
+        1,
+        4,
+        4
+      ],
+      "compression": "gzip"
+    },
+    "valid": {
+      "path": "camera-valid.bin.gz",
+      "dtype": "uint8",
+      "shape": [
+        1
+      ],
+      "compression": "gzip"
+    },
+    "intrinsics": {
+      "path": "camera-intrinsics.bin.gz",
+      "dtype": "float32",
+      "shape": [
+        1,
+        4
+      ],
+      "compression": "gzip"
+    }
+  },
+  "input": {
+    "mode": "static_collection",
+    "sceneType": "image",
+    "sourceIndices": [
+      5
+    ],
+    "preprocessing": "saved_bank_prediction"
+  },
+  "viewer": {
+    "defaults": {}
+  },
+  "coordinates": {
+    "frame": "reconstruction frame 0",
+    "convention": "RDF / OpenCV: +x right, +y down, +z forward",
+    "units": "model-relative"
+  },
+  "geometry": {
+    "positions": {
+      "shape": [
+        82520,
+        1,
+        3
+      ]
+    },
+    "fields": {
+      "positions": {
+        "dtype": "float32",
+        "shape": [
+          82520,
+          1,
+          3
+        ]
+      },
+      "valid": {
+        "dtype": "uint8",
+        "shape": [
+          82520,
+          1
+        ]
+      },
+      "colors": {
+        "dtype": "uint8",
+        "shape": [
+          82520,
+          1,
+          3
+        ]
+      },
+      "confidence": {
+        "dtype": "float32",
+        "shape": [
+          82520,
+          1
+        ]
+      }
+    },
+    "quantization": {
+      "offset": [
+        -4.205212593078613,
+        -3.0074167251586914,
+        0.751758337020874
+      ],
+      "scale": [
+        0.00016473990024395808,
+        6.685464144062285e-05,
+        0.0002233123437321649
+      ],
+      "maxError": [
+        8.236995012197904e-05,
+        3.3427320720311423e-05,
+        0.00011165617186608244
+      ]
+    },
+    "bounds": [
+      [
+        -3.858036518096924,
+        -2.8673977851867676,
+        0.751758337020874
+      ],
+      [
+        3.633199691772461,
+        1.1715009212493896,
+        8.345746040344238
+      ]
+    ],
+    "chunks": [
+      {
+        "path": "geometry-000.bin.gz",
+        "bytes": 114688,
+        "fields": {
+          "positions": {
+            "offset": 0,
+            "dtype": "uint16",
+            "shape": [
+              8192,
+              1,
+              3
+            ]
+          },
+          "valid": {
+            "offset": 49152,
+            "dtype": "uint8",
+            "shape": [
+              8192,
+              1
+            ]
+          },
+          "colors": {
+            "offset": 57344,
+            "dtype": "uint8",
+            "shape": [
+              8192,
+              1,
+              3
+            ]
+          },
+          "confidence": {
+            "offset": 81920,
+            "dtype": "float32",
+            "shape": [
+              8192,
+              1
+            ]
+          }
+        },
+        "trackStart": 0,
+        "trackCount": 8192,
+        "frameStart": 0,
+        "frameCount": 1
+      },
+      {
+        "path": "geometry-001.bin.gz",
+        "bytes": 458752,
+        "fields": {
+          "positions": {
+            "offset": 0,
+            "dtype": "uint16",
+            "shape": [
+              32768,
+              1,
+              3
+            ]
+          },
+          "valid": {
+            "offset": 196608,
+            "dtype": "uint8",
+            "shape": [
+              32768,
+              1
+            ]
+          },
+          "colors": {
+            "offset": 229376,
+            "dtype": "uint8",
+            "shape": [
+              32768,
+              1,
+              3
+            ]
+          },
+          "confidence": {
+            "offset": 327680,
+            "dtype": "float32",
+            "shape": [
+              32768,
+              1
+            ]
+          }
+        },
+        "trackStart": 8192,
+        "trackCount": 32768,
+        "frameStart": 0,
+        "frameCount": 1
+      },
+      {
+        "path": "geometry-002.bin.gz",
+        "bytes": 458752,
+        "fields": {
+          "positions": {
+            "offset": 0,
+            "dtype": "uint16",
+            "shape": [
+              32768,
+              1,
+              3
+            ]
+          },
+          "valid": {
+            "offset": 196608,
+            "dtype": "uint8",
+            "shape": [
+              32768,
+              1
+            ]
+          },
+          "colors": {
+            "offset": 229376,
+            "dtype": "uint8",
+            "shape": [
+              32768,
+              1,
+              3
+            ]
+          },
+          "confidence": {
+            "offset": 327680,
+            "dtype": "float32",
+            "shape": [
+              32768,
+              1
+            ]
+          }
+        },
+        "trackStart": 40960,
+        "trackCount": 32768,
+        "frameStart": 0,
+        "frameCount": 1
+      },
+      {
+        "path": "geometry-003.bin.gz",
+        "bytes": 123088,
+        "fields": {
+          "positions": {
+            "offset": 0,
+            "dtype": "uint16",
+            "shape": [
+              8792,
+              1,
+              3
+            ]
+          },
+          "valid": {
+            "offset": 52752,
+            "dtype": "uint8",
+            "shape": [
+              8792,
+              1
+            ]
+          },
+          "colors": {
+            "offset": 61544,
+            "dtype": "uint8",
+            "shape": [
+              8792,
+              1,
+              3
+            ]
+          },
+          "confidence": {
+            "offset": 87920,
+            "dtype": "float32",
+            "shape": [
+              8792,
+              1
+            ]
+          }
+        },
+        "trackStart": 73728,
+        "trackCount": 8792,
+        "frameStart": 0,
+        "frameCount": 1
+      }
+    ],
+    "ranks": {
+      "path": "geometry-ranks.f32.gz",
+      "dtype": "float32",
+      "shape": [
+        1,
+        101
+      ],
+      "compression": "gzip"
+    }
+  },
+  "previews": [
+    [
+      "previews/0/000000.jpg"
+    ]
+  ]
+}

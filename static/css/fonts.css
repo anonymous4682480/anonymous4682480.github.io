@@ -1,0 +1,21 @@
+@font-face {
+  font-family: 'Google Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url("../../assets/fonts/2cc0854a2118.ttf") format('truetype');
+}
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+  src: url("../../assets/fonts/fb9bf4ef36a1.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: 'Literata';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../../assets/fonts/df0ca203057c.ttf") format('truetype');
+}

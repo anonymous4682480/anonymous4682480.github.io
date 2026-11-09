@@ -1,0 +1,26 @@
+import { preloadManifests } from "./viewer-manifests.js";
+
+export function viewerDisabled(search) {
+  return new URLSearchParams(search).get("viewer") === "off";
+}
+
+export const viewerAvailable =
+  typeof window !== "undefined" &&
+  !viewerDisabled(window.location.search) &&
+  !/\b(?:Googlebot|Google-InspectionTool)\b/i.test(navigator.userAgent) &&
+  Boolean(document.createElement("canvas").getContext("webgl2"));
+
+if (viewerAvailable) {
+  preloadManifests(
+    [...document.querySelectorAll(".example-chip[data-manifest]")].map((chip) => chip.dataset.manifest),
+    document.baseURI,
+  );
+  import("./viewer.js").catch((error) => {
+    console.error("Could not initialize ARROW viewer", error);
+    for (const viewer of document.querySelectorAll("[data-arrow-viewer]")) {
+      viewer?.classList.add("is-unavailable");
+      const text = viewer?.querySelector("[data-viewer-loading-text]");
+      if (text) text.textContent = "Interactive scene unavailable.";
+    }
+  });
+}

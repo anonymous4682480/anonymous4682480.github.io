@@ -1,0 +1,970 @@
+{
+  "format": "arrow-web-example/v4",
+  "title": "Panoptic Studio Basketball",
+  "tasks": [
+    "tracking"
+  ],
+  "tracking": null,
+  "frames": 16,
+  "fps": 8.0,
+  "image": {
+    "path": "rgb-camera-0.mp4",
+    "width": 504,
+    "height": 280
+  },
+  "cameras": {
+    "poses": {
+      "path": "site-camera-poses.bin.gz",
+      "dtype": "float32",
+      "shape": [
+        16,
+        12,
+        4,
+        4
+      ],
+      "compression": "gzip"
+    },
+    "valid": {
+      "path": "site-camera-valid.bin.gz",
+      "dtype": "uint8",
+      "shape": [
+        16,
+        12
+      ],
+      "compression": "gzip"
+    },
+    "intrinsics": {
+      "path": "site-camera-intrinsics.bin.gz",
+      "dtype": "float32",
+      "shape": [
+        16,
+        12,
+        4
+      ],
+      "compression": "gzip"
+    }
+  },
+  "input": {
+    "mode": "multi_view_video",
+    "timeIndices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "cameraIndices": [
+      7,
+      16,
+      1,
+      4,
+      8,
+      11,
+      14,
+      20,
+      27,
+      0,
+      2,
+      6
+    ],
+    "displayCameraIndices": [
+      0,
+      2,
+      4,
+      6,
+      8
+    ],
+    "cameraNames": [
+      "v07",
+      "v16",
+      "v01",
+      "v04",
+      "v08",
+      "v11",
+      "v14",
+      "v20",
+      "v27",
+      "v00",
+      "v02",
+      "v06"
+    ],
+    "ordering": "time_major_camera_minor"
+  },
+  "viewer": {
+    "defaults": {
+      "point_size": 0.05,
+      "trajectory_history": 48,
+      "trajectory_width": 2,
+      "background": "page",
+      "show_cameras": true,
+      "source_rgb": true,
+      "confidence_cutoff": 0,
+      "static_point_tolerance": 0,
+      "trail_motion_threshold": 0,
+      "trajectory_sample_count": 500000
+    }
+  },
+  "coordinates": {
+    "frame": "reconstruction frame 0",
+    "convention": "RDF / OpenCV: +x right, +y down, +z forward",
+    "units": "model-relative"
+  },
+  "images": [
+    {
+      "path": "rgb-camera-0.mp4",
+      "width": 504,
+      "height": 280
+    },
+    {
+      "path": "rgb-camera-2.mp4",
+      "width": 504,
+      "height": 280
+    },
+    {
+      "path": "rgb-view-3.mp4",
+      "width": 504,
+      "height": 280
+    },
+    {
+      "path": "rgb-camera-6.mp4",
+      "width": 504,
+      "height": 280
+    },
+    {
+      "path": "rgb-view-4.mp4",
+      "width": 504,
+      "height": 280
+    }
+  ],
+  "tracks": {
+    "positions": {
+      "shape": [
+        11049,
+        16,
+        3
+      ]
+    },
+    "fields": {
+      "positions": {
+        "dtype": "float32",
+        "shape": [
+          11049,
+          16,
+          3
+        ]
+      },
+      "valid": {
+        "dtype": "uint8",
+        "shape": [
+          11049,
+          16
+        ]
+      },
+      "visible": {
+        "dtype": "uint8",
+        "shape": [
+          11049,
+          16
+        ]
+      },
+      "colors": {
+        "dtype": "uint8",
+        "shape": [
+          11049,
+          1,
+          3
+        ]
+      },
+      "sourceColors": {
+        "dtype": "uint8",
+        "shape": [
+          11049,
+          1,
+          3
+        ]
+      },
+      "confidence": {
+        "dtype": "float32",
+        "shape": [
+          11049,
+          16
+        ]
+      },
+      "trail": {
+        "dtype": "uint8",
+        "shape": [
+          11049,
+          1
+        ]
+      },
+      "meanPositions": {
+        "dtype": "float32",
+        "shape": [
+          11049,
+          1,
+          3
+        ]
+      },
+      "motionRadius": {
+        "dtype": "float32",
+        "shape": [
+          11049,
+          1
+        ]
+      },
+      "meanConfidence": {
+        "dtype": "float32",
+        "shape": [
+          11049,
+          1
+        ]
+      },
+      "positionColors": {
+        "dtype": "uint8",
+        "shape": [
+          11049,
+          1,
+          3
+        ]
+      }
+    },
+    "quantization": {
+      "offset": [
+        -2.6323163509368896,
+        -2.2144391536712646,
+        0.3820326030254364
+      ],
+      "scale": [
+        7.921412997581579e-05,
+        7.279787436860954e-05,
+        9.121571824453675e-05
+      ],
+      "maxError": [
+        3.960706498790789e-05,
+        3.639893718430477e-05,
+        4.5607859122268375e-05
+      ]
+    },
+    "bounds": [
+      [
+        -2.1233582496643066,
+        -2.2097020149230957,
+        0.4055657386779785
+      ],
+      [
+        2.5589816570281982,
+        2.532137155532837,
+        6.108063697814941
+      ]
+    ],
+    "chunks": [
+      {
+        "path": "tracks-000.bin.gz",
+        "bytes": 132596,
+        "fields": {
+          "positions": {
+            "offset": 0,
+            "dtype": "uint16",
+            "shape": [
+              11049,
+              1,
+              3
+            ]
+          },
+          "valid": {
+            "offset": 66296,
+            "dtype": "uint8",
+            "shape": [
+              11049,
+              1
+            ]
+          },
+          "visible": {
+            "offset": 77348,
+            "dtype": "uint8",
+            "shape": [
+              11049,
+              1
+            ]
+          },
+          "confidence": {
+            "offset": 88400,
+            "dtype": "float32",
+            "shape": [
+              11049,
+              1
+            ]
+          }
+        },
+        "trackStart": 0,
+        "trackCount": 11049,
+        "frameStart": 0,
+        "frameCount": 1
+      },
+      {
+        "path": "tracks-001.bin.gz",
+        "bytes": 530352,
+        "fields": {
+          "positions": {
+            "offset": 0,
+            "dtype": "uint16",
+            "shape": [
+              11049,
+              4,
+              3
+            ]
+          },
+          "valid": {
+            "offset": 265176,
+            "dtype": "uint8",
+            "shape": [
+              11049,
+              4
+            ]
+          },
+          "visible": {
+            "offset": 309372,
+            "dtype": "uint8",
+            "shape": [
+              11049,
+              4
+            ]
+          },
+          "confidence": {
+            "offset": 353568,
+            "dtype": "float32",
+            "shape": [
+              11049,
+              4
+            ]
+          }
+        },
+        "trackStart": 0,
+        "trackCount": 11049,
+        "frameStart": 1,
+        "frameCount": 4
+      },
+      {
+        "path": "tracks-002.bin.gz",
+        "bytes": 530352,
+        "fields": {
+          "positions": {
+            "offset": 0,
+            "dtype": "uint16",
+            "shape": [
+              11049,
+              4,
+              3
+            ]
+          },
+          "valid": {
+            "offset": 265176,
+            "dtype": "uint8",
+            "shape": [
+              11049,
+              4
+            ]
+          },
+          "visible": {
+            "offset": 309372,
+            "dtype": "uint8",
+            "shape": [
+              11049,
+              4
+            ]
+          },
+          "confidence": {
+            "offset": 353568,
+            "dtype": "float32",
+            "shape": [
+              11049,
+              4
+            ]
+          }
+        },
+        "trackStart": 0,
+        "trackCount": 11049,
+        "frameStart": 5,
+        "frameCount": 4
+      },
+      {
+        "path": "tracks-003.bin.gz",
+        "bytes": 530352,
+        "fields": {
+          "positions": {
+            "offset": 0,
+            "dtype": "uint16",
+            "shape": [
+              11049,
+              4,
+              3
+            ]
+          },
+          "valid": {
+            "offset": 265176,
+            "dtype": "uint8",
+            "shape": [
+              11049,
+              4
+            ]
+          },
+          "visible": {
+            "offset": 309372,
+            "dtype": "uint8",
+            "shape": [
+              11049,
+              4
+            ]
+          },
+          "confidence": {
+            "offset": 353568,
+            "dtype": "float32",
+            "shape": [
+              11049,
+              4
+            ]
+          }
+        },
+        "trackStart": 0,
+        "trackCount": 11049,
+        "frameStart": 9,
+        "frameCount": 4
+      },
+      {
+        "path": "tracks-004.bin.gz",
+        "bytes": 397768,
+        "fields": {
+          "positions": {
+            "offset": 0,
+            "dtype": "uint16",
+            "shape": [
+              11049,
+              3,
+              3
+            ]
+          },
+          "valid": {
+            "offset": 198884,
+            "dtype": "uint8",
+            "shape": [
+              11049,
+              3
+            ]
+          },
+          "visible": {
+            "offset": 232032,
+            "dtype": "uint8",
+            "shape": [
+              11049,
+              3
+            ]
+          },
+          "confidence": {
+            "offset": 265180,
+            "dtype": "float32",
+            "shape": [
+              11049,
+              3
+            ]
+          }
+        },
+        "trackStart": 0,
+        "trackCount": 11049,
+        "frameStart": 13,
+        "frameCount": 3
+      }
+    ],
+    "ranks": {
+      "path": "tracks-ranks.f32.gz",
+      "dtype": "float32",
+      "shape": [
+        16,
+        101
+      ],
+      "compression": "gzip"
+    },
+    "palette": {
+      "path": "tracks-palette.f32.gz",
+      "dtype": "float32",
+      "shape": [
+        11049,
+        3
+      ],
+      "compression": "gzip"
+    },
+    "constants": {
+      "path": "tracks-constants.bin.gz",
+      "bytes": 331475,
+      "fields": {
+        "colors": {
+          "offset": 0,
+          "dtype": "uint8",
+          "shape": [
+            11049,
+            1,
+            3
+          ]
+        },
+        "sourceColors": {
+          "offset": 33148,
+          "dtype": "uint8",
+          "shape": [
+            11049,
+            1,
+            3
+          ]
+        },
+        "trail": {
+          "offset": 66296,
+          "dtype": "uint8",
+          "shape": [
+            11049,
+            1
+          ]
+        },
+        "meanPositions": {
+          "offset": 77348,
+          "dtype": "float32",
+          "shape": [
+            11049,
+            1,
+            3
+          ]
+        },
+        "motionRadius": {
+          "offset": 209936,
+          "dtype": "float32",
+          "shape": [
+            11049,
+            1
+          ]
+        },
+        "meanConfidence": {
+          "offset": 254132,
+          "dtype": "float32",
+          "shape": [
+            11049,
+            1
+          ]
+        },
+        "positionColors": {
+          "offset": 298328,
+          "dtype": "uint8",
+          "shape": [
+            11049,
+            1,
+            3
+          ]
+        }
+      },
+      "trackStart": 0,
+      "trackCount": 11049,
+      "frameStart": 0,
+      "frameCount": 1
+    }
+  },
+  "static": {
+    "positions": {
+      "shape": [
+        87355,
+        1,
+        3
+      ]
+    },
+    "fields": {
+      "positions": {
+        "dtype": "float32",
+        "shape": [
+          87355,
+          1,
+          3
+        ]
+      },
+      "valid": {
+        "dtype": "uint8",
+        "shape": [
+          87355,
+          1
+        ]
+      },
+      "colors": {
+        "dtype": "uint8",
+        "shape": [
+          87355,
+          1,
+          3
+        ]
+      },
+      "sourceColors": {
+        "dtype": "uint8",
+        "shape": [
+          87355,
+          1,
+          3
+        ]
+      },
+      "confidence": {
+        "dtype": "float32",
+        "shape": [
+          87355,
+          1
+        ]
+      }
+    },
+    "quantization": {
+      "offset": [
+        -2.881349563598633,
+        -2.3073880672454834,
+        -0.03170916810631752
+      ],
+      "scale": [
+        8.446379530809105e-05,
+        7.502999396312152e-05,
+        0.00010806832565153147
+      ],
+      "maxError": [
+        4.2231897654045526e-05,
+        3.751499698156076e-05,
+        5.403416282576573e-05
+      ]
+    },
+    "bounds": [
+      [
+        -2.855660915374756,
+        -1.766664743423462,
+        1.262967586517334
+      ],
+      [
+        2.6539852619171143,
+        2.555607795715332,
+        6.188990116119385
+      ]
+    ],
+    "chunks": [
+      {
+        "path": "static-000.bin.gz",
+        "bytes": 139264,
+        "fields": {
+          "positions": {
+            "offset": 0,
+            "dtype": "uint16",
+            "shape": [
+              8192,
+              1,
+              3
+            ]
+          },
+          "valid": {
+            "offset": 49152,
+            "dtype": "uint8",
+            "shape": [
+              8192,
+              1
+            ]
+          },
+          "colors": {
+            "offset": 57344,
+            "dtype": "uint8",
+            "shape": [
+              8192,
+              1,
+              3
+            ]
+          },
+          "sourceColors": {
+            "offset": 81920,
+            "dtype": "uint8",
+            "shape": [
+              8192,
+              1,
+              3
+            ]
+          },
+          "confidence": {
+            "offset": 106496,
+            "dtype": "float32",
+            "shape": [
+              8192,
+              1
+            ]
+          }
+        },
+        "trackStart": 0,
+        "trackCount": 8192,
+        "frameStart": 0,
+        "frameCount": 1
+      },
+      {
+        "path": "static-001.bin.gz",
+        "bytes": 557056,
+        "fields": {
+          "positions": {
+            "offset": 0,
+            "dtype": "uint16",
+            "shape": [
+              32768,
+              1,
+              3
+            ]
+          },
+          "valid": {
+            "offset": 196608,
+            "dtype": "uint8",
+            "shape": [
+              32768,
+              1
+            ]
+          },
+          "colors": {
+            "offset": 229376,
+            "dtype": "uint8",
+            "shape": [
+              32768,
+              1,
+              3
+            ]
+          },
+          "sourceColors": {
+            "offset": 327680,
+            "dtype": "uint8",
+            "shape": [
+              32768,
+              1,
+              3
+            ]
+          },
+          "confidence": {
+            "offset": 425984,
+            "dtype": "float32",
+            "shape": [
+              32768,
+              1
+            ]
+          }
+        },
+        "trackStart": 8192,
+        "trackCount": 32768,
+        "frameStart": 0,
+        "frameCount": 1
+      },
+      {
+        "path": "static-002.bin.gz",
+        "bytes": 557056,
+        "fields": {
+          "positions": {
+            "offset": 0,
+            "dtype": "uint16",
+            "shape": [
+              32768,
+              1,
+              3
+            ]
+          },
+          "valid": {
+            "offset": 196608,
+            "dtype": "uint8",
+            "shape": [
+              32768,
+              1
+            ]
+          },
+          "colors": {
+            "offset": 229376,
+            "dtype": "uint8",
+            "shape": [
+              32768,
+              1,
+              3
+            ]
+          },
+          "sourceColors": {
+            "offset": 327680,
+            "dtype": "uint8",
+            "shape": [
+              32768,
+              1,
+              3
+            ]
+          },
+          "confidence": {
+            "offset": 425984,
+            "dtype": "float32",
+            "shape": [
+              32768,
+              1
+            ]
+          }
+        },
+        "trackStart": 40960,
+        "trackCount": 32768,
+        "frameStart": 0,
+        "frameCount": 1
+      },
+      {
+        "path": "static-003.bin.gz",
+        "bytes": 231668,
+        "fields": {
+          "positions": {
+            "offset": 0,
+            "dtype": "uint16",
+            "shape": [
+              13627,
+              1,
+              3
+            ]
+          },
+          "valid": {
+            "offset": 81764,
+            "dtype": "uint8",
+            "shape": [
+              13627,
+              1
+            ]
+          },
+          "colors": {
+            "offset": 95392,
+            "dtype": "uint8",
+            "shape": [
+              13627,
+              1,
+              3
+            ]
+          },
+          "sourceColors": {
+            "offset": 136276,
+            "dtype": "uint8",
+            "shape": [
+              13627,
+              1,
+              3
+            ]
+          },
+          "confidence": {
+            "offset": 177160,
+            "dtype": "float32",
+            "shape": [
+              13627,
+              1
+            ]
+          }
+        },
+        "trackStart": 73728,
+        "trackCount": 13627,
+        "frameStart": 0,
+        "frameCount": 1
+      }
+    ],
+    "ranks": {
+      "path": "static-ranks.f32.gz",
+      "dtype": "float32",
+      "shape": [
+        1,
+        101
+      ],
+      "compression": "gzip"
+    }
+  },
+  "previews": [
+    [
+      "previews/camera-0/000000.jpg",
+      "previews/camera-0/000001.jpg",
+      "previews/camera-0/000002.jpg",
+      "previews/camera-0/000003.jpg",
+      "previews/camera-0/000004.jpg",
+      "previews/camera-0/000005.jpg",
+      "previews/camera-0/000006.jpg",
+      "previews/camera-0/000007.jpg",
+      "previews/camera-0/000008.jpg",
+      "previews/camera-0/000009.jpg",
+      "previews/camera-0/000010.jpg",
+      "previews/camera-0/000011.jpg",
+      "previews/camera-0/000012.jpg",
+      "previews/camera-0/000013.jpg",
+      "previews/camera-0/000014.jpg",
+      "previews/camera-0/000015.jpg"
+    ],
+    [
+      "previews/camera-2/000000.jpg",
+      "previews/camera-2/000001.jpg",
+      "previews/camera-2/000002.jpg",
+      "previews/camera-2/000003.jpg",
+      "previews/camera-2/000004.jpg",
+      "previews/camera-2/000005.jpg",
+      "previews/camera-2/000006.jpg",
+      "previews/camera-2/000007.jpg",
+      "previews/camera-2/000008.jpg",
+      "previews/camera-2/000009.jpg",
+      "previews/camera-2/000010.jpg",
+      "previews/camera-2/000011.jpg",
+      "previews/camera-2/000012.jpg",
+      "previews/camera-2/000013.jpg",
+      "previews/camera-2/000014.jpg",
+      "previews/camera-2/000015.jpg"
+    ],
+    [
+      "previews/3/000000.jpg",
+      "previews/3/000001.jpg",
+      "previews/3/000002.jpg",
+      "previews/3/000003.jpg",
+      "previews/3/000004.jpg",
+      "previews/3/000005.jpg",
+      "previews/3/000006.jpg",
+      "previews/3/000007.jpg",
+      "previews/3/000008.jpg",
+      "previews/3/000009.jpg",
+      "previews/3/000010.jpg",
+      "previews/3/000011.jpg",
+      "previews/3/000012.jpg",
+      "previews/3/000013.jpg",
+      "previews/3/000014.jpg",
+      "previews/3/000015.jpg"
+    ],
+    [
+      "previews/camera-6/000000.jpg",
+      "previews/camera-6/000001.jpg",
+      "previews/camera-6/000002.jpg",
+      "previews/camera-6/000003.jpg",
+      "previews/camera-6/000004.jpg",
+      "previews/camera-6/000005.jpg",
+      "previews/camera-6/000006.jpg",
+      "previews/camera-6/000007.jpg",
+      "previews/camera-6/000008.jpg",
+      "previews/camera-6/000009.jpg",
+      "previews/camera-6/000010.jpg",
+      "previews/camera-6/000011.jpg",
+      "previews/camera-6/000012.jpg",
+      "previews/camera-6/000013.jpg",
+      "previews/camera-6/000014.jpg",
+      "previews/camera-6/000015.jpg"
+    ],
+    [
+      "previews/4/000000.jpg",
+      "previews/4/000001.jpg",
+      "previews/4/000002.jpg",
+      "previews/4/000003.jpg",
+      "previews/4/000004.jpg",
+      "previews/4/000005.jpg",
+      "previews/4/000006.jpg",
+      "previews/4/000007.jpg",
+      "previews/4/000008.jpg",
+      "previews/4/000009.jpg",
+      "previews/4/000010.jpg",
+      "previews/4/000011.jpg",
+      "previews/4/000012.jpg",
+      "previews/4/000013.jpg",
+      "previews/4/000014.jpg",
+      "previews/4/000015.jpg"
+    ]
+  ]
+}
